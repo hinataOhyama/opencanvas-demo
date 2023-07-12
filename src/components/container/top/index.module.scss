@@ -1,0 +1,291 @@
+@use '/src/styles/utils/index.scss' as *;
+
+.wrapper {
+  padding: 120px 20px 40px;
+  background: #fff4e1;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 16%);
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    .image_top {
+      margin-top: 60px;
+      
+      img {
+        width: 100%;
+        box-shadow: 0 4px 20px hsl(0deg 0% 75% / 20%);
+      }
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 1rem;
+      text-align: right;
+      color: #999;
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .intro {
+      margin-top: 80px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 80px;
+      padding: 20px 30px;
+      border-radius: 3px;
+      border-left: 6px solid #950042;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 1;
+      color: #333;
+    }
+
+    .lead {
+      margin-top: 40px;
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .formWrapper {
+      margin-top: 40px;
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+
+      .queryWrapper {
+        width: 50%;
+        padding: 20px;
+        background: #fff4e1;
+        box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .situation {
+          label {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #333;
+          }
+  
+          input {
+            padding: 20px;
+            width: 100%;
+            display: block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+  
+        .endPoint {
+          label {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #333;
+          }
+  
+          input {
+            padding: 20px;
+            width: 100%;
+            display: block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+
+        .query {
+          label {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            color: #333;
+          }
+
+          textarea {
+            padding: 20px;
+            width: 100%;
+            display: block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+
+        .submit {
+          cursor: pointer;
+
+          p {
+            width: fit-content;
+            padding: 10px 20px;
+            background: #9d284a;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1;
+            color: #fff;
+            transition: 0.3s ease;
+
+            &:hover {
+              background: #ca536f;
+            }
+          }
+        }
+      }
+      
+      
+      .search {
+        width: 50%;
+        padding: 20px;
+        background: #fff4e1;
+        box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+
+        label {
+          font-size: 1.2rem;
+          line-height: 1.4;
+          color: #333;
+        }
+        
+        .inputWrapper {
+          input {
+            padding: 20px;
+            width: 100%;
+            display: inline-block;
+            background: #fff;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+          }
+        }
+      }
+    }
+
+    .current_situation {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      font-weight: bold;
+      font-size: 1.4rem;
+      line-height: 1.6;
+
+      p {
+        font-weight: normal;
+        font-size: 1.2rem;
+      }
+    }
+
+    .table {
+      margin: 40px 0 0;
+      box-shadow: 0 4px 20px hsl(0deg 0% 75% / 20%);
+      border-radius: 4px;
+
+      .thead {
+        .tr {
+          display: flex;
+
+          .th_situation {
+            width: 50%;
+            background: #9d284a;
+            padding: 20px 0;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 1;
+            color: #fff;
+          }
+          
+          .th_resolution {
+            flex-grow: 1;
+            background: #ca536f;
+            border-left: 1px solid #dcdcdc;
+            padding: 20px 0;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-align: center;
+            line-height: 1;
+            color: #fff;
+          }
+        }
+      }
+
+      .tbody {
+        .tr {
+          display: flex;
+          
+          .th {
+            position: relative;
+            width: 50%;
+            border-top: 1px solid #dcdcdc;
+            border-left: 1px solid #dcdcdc;
+            padding: 20px 0;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 1;
+            color: #333;
+            
+            &:first-of-type {
+              cursor: pointer;
+              border-left: unset;
+            }
+            
+            .reason {
+              position: absolute;
+              visibility: hidden;
+              top: -30px;
+              left: 0;
+              transform: translateX(-50%);
+              z-index: 1;
+              background: #ca536f;
+              padding: 4px 12px;
+              font-size: 1rem;
+              font-weight: bold;
+              line-height: 1.8;
+              color: #FFF;
+              border-radius: 3px;
+              filter: drop-shadow(0px 1px 4px #aaa);
+  
+              &::before {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 75%;
+                margin-left: -8px;
+                border: 5px solid transparent;
+                border-top: 8px solid #ca536f;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    .summary {
+      margin-top: 80px;
+      font-size: 1.6rem;
+      color: #333;
+    }
+  }
+}
