@@ -5,7 +5,16 @@ interface Props {
   clickButton: () => void;
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  wikipediaRankingHtml: string[];
+  wikipediaRankingHtml: {
+    rank: string;
+    img: string;
+    article: string;
+    categories: string;
+    views: string;
+    wikipediaUrl: string;
+    dbpediaUrl: string;
+    wikidataUrl: string;
+  }[];
 }
 
 const Presentation: React.FC<Props> = (props) => {
@@ -95,22 +104,22 @@ const Presentation: React.FC<Props> = (props) => {
                 return (
                   <div
                     key={i}
-                    className={`${Style.item} ${i == selectedElement && Style.selectedElement}`}
-                    onClick={() =>
-                      { 
-                        handleElementClick(i);
-                        displaySideBar(
-                          v.rank,
-                          v.img,
-                          v.article,
-                          v.categories,
-                          v.views,
-                          v.wikipediaUrl,
-                          v.dbpediaUrl,
-                          v.wikidataUrl
-                        );
-                      }
-                    }
+                    className={`${Style.item} ${
+                      i == selectedElement && Style.selectedElement
+                    }`}
+                    onClick={() => {
+                      handleElementClick(i);
+                      displaySideBar(
+                        v.rank,
+                        v.img,
+                        v.article,
+                        v.categories,
+                        v.views,
+                        v.wikipediaUrl,
+                        v.dbpediaUrl,
+                        v.wikidataUrl
+                      );
+                    }}
                   >
                     <div className={Style.image}>
                       <img src={v.img} alt="" />
@@ -126,12 +135,21 @@ const Presentation: React.FC<Props> = (props) => {
             <div className={Style.sideBar}>
               {props.wikipediaRankingHtml.length > 0 && (
                 <>
-                  <div className={Style.articles}><span>名前</span>：{article}</div>
-                  <div className={Style.rank}><span>ランク</span>：{rank}</div>
-                  <div className={Style.categories}>
-                    <span>カテゴリー</span>：<a href={categories} target="_blank">{categories}</a>
+                  <div className={Style.articles}>
+                    <span>名前</span>：{article}
                   </div>
-                  <div className={Style.views}><span>ビュー</span>：{views}</div>
+                  <div className={Style.rank}>
+                    <span>ランク</span>：{rank}
+                  </div>
+                  <div className={Style.categories}>
+                    <span>カテゴリー</span>：
+                    <a href={categories} target="_blank">
+                      {categories}
+                    </a>
+                  </div>
+                  <div className={Style.views}>
+                    <span>ビュー</span>：{views}
+                  </div>
                   <div className={Style.icon_wrapper}>
                     <div className={Style.icon}>
                       <a href={wikipediaUrl} target="_blank">

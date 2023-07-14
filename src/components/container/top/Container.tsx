@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Presentation from "./Presentation";
-import { GETid, WikipediaPageviewsRanking, WikipediaArticle } from './query';
+import { GETid, WikipediaPageviewsRanking, WikipediaArticle } from "./query";
 
 const TopContainer = () => {
   const [value, setValue] = useState("2023-07-08");
-  const [wikipediaRankingHtml, setWikipediaRankingHtml] = useState<string[]>([]);
+  const [wikipediaRankingHtml, setWikipediaRankingHtml] = useState<
+    {
+      rank: string;
+      img: string;
+      article: string;
+      categories: string;
+      views: string;
+      wikipediaUrl: string;
+      dbpediaUrl: string;
+      wikidataUrl: string;
+    }[]
+  >([]);
   const clickButton = () => {
     main();
   };
-  const sleep = (ms: number) => new Promise((reserve) => setTimeout(reserve, ms));
+  const sleep = (ms: number) =>
+    new Promise((reserve) => setTimeout(reserve, ms));
   async function main() {
     const date = value.replaceAll("-", "/");
     console.log(date);
@@ -24,7 +36,7 @@ const TopContainer = () => {
       twoDimensionsArticles.push(articles.slice(i, i + divisionNum));
     }
     console.log(twoDimensionsArticles);
-  
+
     for (const articleArray of twoDimensionsArticles) {
       console.log(articleArray);
       wikipediaPageView.push(
@@ -59,7 +71,7 @@ const TopContainer = () => {
     }
     wikipediaPageView = wikipediaPageView.flat();
     console.log(wikipediaPageView);
-  
+
     let humanOnlyWikipediaPageviewsRanking = [];
     for (const x of wikipediaPageView) {
       if (x["wikidataUrl"] != null) {
@@ -68,17 +80,24 @@ const TopContainer = () => {
           GETid(categoryUrl)
         );
         console.log(wikidataIds);
-        console.log(x)
+        console.log(x);
         if (wikidataIds.includes("Q5")) {
           humanOnlyWikipediaPageviewsRanking.push(x);
         }
       }
     }
-  
+
     setWikipediaRankingHtml(humanOnlyWikipediaPageviewsRanking);
-    console.log(wikipediaRankingHtml)
+    console.log(wikipediaRankingHtml);
   }
-  return <Presentation clickButton={clickButton} value={value} setValue={setValue} wikipediaRankingHtml={wikipediaRankingHtml}/>;
+  return (
+    <Presentation
+      clickButton={clickButton}
+      value={value}
+      setValue={setValue}
+      wikipediaRankingHtml={wikipediaRankingHtml}
+    />
+  );
 };
 
 export default TopContainer;
