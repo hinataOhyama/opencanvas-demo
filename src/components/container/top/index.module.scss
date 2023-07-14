@@ -19,7 +19,7 @@
     }
 
     .image_top {
-      margin-top: 60px;
+      // margin-top: 60px;
       
       img {
         width: 100%;
@@ -127,19 +127,33 @@
         gap: 20px;
 
         .articles {
-
+          span {
+            font-weight: bold;
+          }
         }
 
         .rank {
-
+          span {
+            font-weight: bold;
+          }
         }
 
         .categories {
+          span {
+            font-weight: bold;
+          }
 
+          a {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
 
         .views {
-
+          span {
+            font-weight: bold;
+          }
         }
 
         .icon_wrapper {

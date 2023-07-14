@@ -63,7 +63,7 @@ const Presentation: React.FC<Props> = (props) => {
       </Head>
       <div className={Style.wrapper}>
         <div className={Style.container}>
-          <h1>オープンキャンパス2023デモ</h1>
+          {/* <h1>オープンキャンパス2023デモ</h1> */}
           <div className={Style.image_top}>
             <img src="\assets\img\top.jpg" alt="" />
           </div>
@@ -126,27 +126,27 @@ const Presentation: React.FC<Props> = (props) => {
             <div className={Style.sideBar}>
               {props.wikipediaRankingHtml.length > 0 && (
                 <>
-                  <div className={Style.articles}>名前：{article}</div>
-                  <div className={Style.rank}>ランク：{rank}</div>
+                  <div className={Style.articles}><span>名前</span>：{article}</div>
+                  <div className={Style.rank}><span>ランク</span>：{rank}</div>
                   <div className={Style.categories}>
-                    カテゴリー：{categories}
+                    <span>カテゴリー</span>：<a href={categories} target="_blank">{categories}</a>
                   </div>
-                  <div className={Style.views}>ビュー：{views}</div>
+                  <div className={Style.views}><span>ビュー</span>：{views}</div>
                   <div className={Style.icon_wrapper}>
                     <div className={Style.icon}>
-                      <a href={wikipediaUrl}>
+                      <a href={wikipediaUrl} target="_blank">
                         <img src="\assets\img\Wikipedia_icon.png" alt="" />
                         <p>wikipedia</p>
                       </a>
                     </div>
                     <div className={Style.icon}>
-                      <a href={dbpediaUrl}>
+                      <a href={dbpediaUrl} target="_blank">
                         <img src="\assets\img\dbpedia_icon.png" alt="" />
                         <p>dbpedia</p>
                       </a>
                     </div>
                     <div className={Style.icon}>
-                      <a href={wikidataUrl}>
+                      <a href={wikidataUrl} target="_blank">
                         <img src="\assets\img\Wikidata_icon.png" alt="" />
                         <p>wikidata</p>
                       </a>
