@@ -37,6 +37,16 @@ const Presentation: React.FC<Props> = (props) => {
     setWikidataUrl(wikidataUrl);
   };
 
+  const [selectedElement, setSelectedElement] = useState<number>();
+
+  const handleElementClick = (index: number) => {
+    if (selectedElement !== index) {
+      setSelectedElement(index);
+    }
+
+    console.log(selectedElement, index);
+  };
+
   return (
     <>
       <Head>
@@ -85,18 +95,21 @@ const Presentation: React.FC<Props> = (props) => {
                 return (
                   <div
                     key={i}
-                    className={Style.item}
+                    className={`${Style.item} ${i == selectedElement && Style.selectedElement}`}
                     onClick={() =>
-                      displaySideBar(
-                        v.rank,
-                        v.img,
-                        v.article,
-                        v.categories,
-                        v.views,
-                        v.wikipediaUrl,
-                        v.dbpediaUrl,
-                        v.wikidataUrl
-                      )
+                      { 
+                        handleElementClick(i);
+                        displaySideBar(
+                          v.rank,
+                          v.img,
+                          v.article,
+                          v.categories,
+                          v.views,
+                          v.wikipediaUrl,
+                          v.dbpediaUrl,
+                          v.wikidataUrl
+                        );
+                      }
                     }
                   >
                     <div className={Style.image}>

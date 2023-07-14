@@ -82,18 +82,29 @@
 
         .item {
           cursor: pointer;
-          max-width: 200px;
+          max-width: 210px;
+          padding: 5px;
+
+          &.selectedElement {
+            background: #64ccc5;
+          }
+
+          &:hover {
+            background: #64ccc5;
+          }
 
           .image {
             img {
               width: 200px;
               height: 300px;
+              background: #fff;
             }
           }
 
           .profile {
             margin-top: 10px;
             display: flex;
+            justify-content: center;
             gap: 10px;
 
             .rank {
